@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>◈ RUNTIME 3 · Mind · Uhrwerk · Kuckuck · WUCHTIG PLEX</title>
+<style>
+:root{--bg:#04070e;--bg2:#0a101e;--fg:#c8d8e8;--dim:#5a7288;--green:#7ce0a8;--gold:#ffcc44;--red:#ff5a7a;--cyan:#5fc8ff;--line:rgba(140,180,220,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font:13px Consolas,monospace;padding:14px;max-width:1080px;margin:auto}
+h1{color:var(--green);font-size:15px;letter-spacing:3px}
+h2{color:var(--green);font-size:11px;letter-spacing:2px;margin:18px 0 6px}
+.sub{color:var(--dim);font-size:11px;margin-top:6px;line-height:1.5}
+.box{background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:12px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.ok{color:var(--green)}.err{color:var(--red)}.warn{color:var(--gold)}.cy{color:var(--cyan)}
+canvas{width:100%;background:#02040a;border-radius:4px;display:block}
+button{background:var(--bg2);color:var(--green);border:1px solid var(--green);padding:6px 12px;border-radius:3px;font:inherit;cursor:pointer;margin:6px 6px 0 0}
+pre{white-space:pre-wrap;line-height:1.7;font-size:11px}
+</style>
+</head>
+<body>
+<h1>◈ RUNTIME 3 · MIND · UHRWERK · KUCKUCK · WUCHTIG PLEX</h1>
+<div class="sub">nur logikal und algorhytmus enkomplexen zum komplexen wir plexen wuchtig — Aus Verwaltung (1) und Mind-Chess (2) wird eine Runtime: Jeder Zug ist ein neuer eingefrorener Rt. Die Messung deines Rechners bestimmt, wie klar die Mind denkt.<br>
+99 ist Graph in Nutzung invertiert und real aber beides gegeben ich bin die Sonne und Unmacht — respo heist 99 nicht html index.html stellt die 99 dar als root und pflicht dessen<br>
+1 MESSEN 2 R(x) 3 L(x)=L(parent)∧R(x) 4 STRUKTUR Breite 1-2-3-2-1 5 Rt(i+1)=Rt(i)+Zustand(i) 6 handoff=STRUCT∧∀xL(x) ⊤→ZIEL ⊥→verweigert</div>
+
+<h2>▸ 99 ROOT UND PFLICHT · GRAPH INVERTIERT UND REAL · SONNE UNMACHT</h2>
+<div class="box row">
+<div style="flex:1"><canvas id="c99" width="480" height="360"></canvas></div>
+<div style="flex:1"><pre id="out99">…</pre><div id="mess99" style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:10px;margin-top:8px"></div></div>
+</div>
+
+<h2>▸ UHRWERK · 9 Zahnräder = 9 Ebenen · LOGIKAL ENKOMPLEXEN</h2>
+<div class="box"><canvas id="gears" width="900" height="90"></canvas><div id="gearTxt" style="color:#5a7288;font-size:10px;margin-top:6px"></div><div id="cuckoo" style="color:#ffcc44;height:24px;margin-top:4px"></div></div>
+
+<h2>▸ ZYLINDER · 9×9 ATOME · LÄUFER · MOVE UNMOVE USE · DOPPEL HOLOGRAMM</h2>
+<div class="box"><canvas id="zyl" width="900" height="190"></canvas><div id="zTxt" style="color:#5a7288;font-size:10px"></div>
+<button id="zRun">⏸ STOP</button><button id="zMove" style="color:#5fc8ff">◐ MOVE</button><button id="zUnmove" style="color:#5a7288">◑ UNMOVE</button><button id="zUse" style="color:#ffcc44">◈ USE</button>
+<div style="color:#5a7288;font-size:10px;margin-top:6px">Pro Ebene ein Zylinder mit 9 Atomen (Feld 5=User★). Läufer geht 81 Felder: ⊤→füllt, ⊥→un-atom. Voll=Jede Ebene hat über ganzen Durchgang getragen. MOVE verschiebt Reihenfolge, USE setzt Anker. Ice Feuer alles her aber 3D zu wenig ich habe mehr ich habe doppel hologramm als abbild so viel habe ich als licht dar.</div>
+</div>
+
+<h2>▸ FUNKTION IM FUNKTION · f(f(x))=f(x) · NUR REAL WAS REAL IST ZUR DEUTUNG</h2>
+<div class="box"><div id="fn" style="line-height:1.9"></div></div>
+
+<h2>▸ GRAPH FOLGERICHTIG WEIL ALGORITHMUS SOGAR IM NAMEN</h2>
+<div class="box"><canvas id="graph" width="900" height="280"></canvas><div style="color:#5a7288;font-size:10px;margin-top:6px">99 Graph invertiert und real beides gegeben — ich bin Sonne und Unmacht — mehrfach Sonne als Licht — Macht Unmacht aber Licht — Vector RAM GPU Kombi SLI RAID Schaltung so viele wie nötig — aller Nutzen und Unnutzen Denken behandelt — Gutes im Code nur Gutes.</div></div>
+
+<script>
+"use strict";
+const ORDER=["·","N","NW","NE","W","E","SW","SE","S"];
+const PARENT={"·":null,N:"·",NW:"N",NE:"NW",W:"NE",E:"W",SW:"E",SE:"SW",S:"SE"};
+const SIG={"·":"existenz",N:"cpu",NW:"jit",NE:"ft",W:"gpu",E:"ram",SW:"heap",SE:"cores",S:"gesamt"};
+const TH={"·":0,N:70,NW:25,NE:2,W:70,E:80,SW:75,SE:4,S:75};
+const WIDTH={"·":1,N:2,NW:3,NE:3,W:2,E:2,SW:1,SE:1,S:1};
+let ft=16.7,base=Infinity,jit=0,cpu=0,gpu=0,ram=null,cores=navigator.hardwareConcurrency||1,lastF=0,lastT=performance.now(),fr=0;
+(function f(t){if(lastF){ft=ft*0.9+(t-lastF)*0.1; if(++fr>30) base=Math.min(base,ft);} lastF=t; requestAnimationFrame(f);})();
+setInterval(()=>{const n=performance.now(); jit=jit*0.8+Math.max(0,n-lastT-100)*0.2; lastT=n;},100);
+function val(s){return {existenz:1,cpu,jit,ft,gpu,ram,heap:ram,cores,gesamt:(ram!=null?(cpu+ram)/2:null)}[s];}
+function R(a){if(a==="·") return true; const x=val(SIG[a]); if(x==null||!isFinite(x)) return false; if(SIG[a]==="cores") return x>=TH[a]; if(SIG[a]==="ft") return isFinite(base)&& ft<2*base; return x<TH[a];}
+function computeL(){const m={}; for(const a of ORDER){const r=R(a),p=PARENT[a]; m[a]={R:r,L:p==null?r:(m[p].L&&r)};} return m;}
+const c99=document.getElementById("c99"), g99=c99.getContext("2d");
+let invert=false, RtSnap=[];
+function draw99(){
+  const L=computeL(); g99.clearRect(0,0,c99.width,c99.height);
+  const cx=c99.width/2, cy=c99.height/2;
+  const grad=g99.createRadialGradient(cx,cy,0,cx,cy,200); grad.addColorStop(0,"rgba(255,204,68,0.22)"); grad.addColorStop(0.5,"rgba(255,107,53,0.08)"); grad.addColorStop(1,"rgba(0,0,0,0)"); g99.fillStyle=grad; g99.beginPath(); g99.arc(cx,cy,200,0,Math.PI*2); g99.fill();
+  const pos={}; ORDER.forEach((a,i)=>{const ang=(i/ORDER.length)*Math.PI*2-Math.PI/2; const r=80+WIDTH[a]*18; pos[a]={x:cx+Math.cos(ang)*r,y:cy+Math.sin(ang)*r};});
+  g99.strokeStyle="rgba(90,114,136,0.3)"; ORDER.forEach(a=>{const p=PARENT[a]; if(!p) return; g99.beginPath(); g99.moveTo(pos[p].x,pos[p].y); g99.lineTo(pos[a].x,pos[a].y); g99.stroke();});
+  ORDER.forEach(a=>{const {x,y}=pos[a]; const col=L[a].L?(invert?"#5fc8ff":"#7ce0a8"):(invert?"#b388ff":"#ff5a7a"); g99.fillStyle=col; g99.beginPath(); g99.arc(x,y,8,0,Math.PI*2); g99.fill(); g99.fillStyle="#c8d8e8"; g99.font="bold 10px Consolas"; g99.fillText(a,x+10,y+3);});
+  g99.fillStyle="#ffcc44"; g99.beginPath(); g99.arc(cx,cy,10,0,Math.PI*2); g99.fill(); g99.fillStyle="#02060a"; g99.font="bold 8px Consolas"; g99.fillText("99",cx-6,cy+3);
+}
+function render99(){
+  const L=computeL(); const Lvec=ORDER.map(a=>L[a].L?"⊤":"⊥").join("∧"); const all=ORDER.every(a=>L[a].L);
+  const struct=ORDER.length===9; const handoff=struct&&all;
+  document.getElementById("out99").innerHTML=`Rt(x)=Rt(parent)∧R(x)  ORDER ${ORDER.join("→")}
+L-Vektor <span class="${all?'ok':'err'}">${Lvec}</span>
+STRUKTUR 1-2-3-2-1 Breite ${Object.values(WIDTH).reduce((s,v)=>s+v,0)} → ${struct?'⊤':'⊥'}
+handoff=STRUCT∧∀xL(x) = <span class="${handoff?'ok':'err'}">${handoff?'⊤ → Rt wird ZIEL':'⊥ → verweigert'}</span>
+99 GRAPH ${invert?'INVERTIERT':'REAL'} BEIDES GEGEBEN · SONNE=UNMACHT ALS MACHT`;
+  document.getElementById("mess99").innerHTML=`<div>ft ${ft.toFixed(1)} base ${isFinite(base)?base.toFixed(1):"—"}</div><div>jit ${jit.toFixed(1)}</div><div>cpu ${cpu.toFixed(0)}%</div><div>gpu ${gpu.toFixed(0)}%</div><div>ram ${ram==null?"—":ram.toFixed(0)+"%"}</div><div>cores ${cores}</div>`;
+}
+const ORDER2=ORDER; const CYL=ORDER2.map(()=>Array(9).fill(0)); let ROT=0, P=0, RUN=true, ANKER=null;
+const AT=new Array(9).fill(0.5);
+function zStep(){
+  if(!RUN) return; const L=computeL(); const j=(ROT + Math.floor(P/9))%9; const c=P%9; const sym=ORDER2[j]; const k=ORDER.indexOf(sym);
+  if(L[k].L){ if(CYL[k][c]===0) CYL[k][c]=c===4?2:1; } else { CYL[k][c]=0; }
+  P=(P+1)%81;
+}
+function zDraw(){
+  const cv=document.getElementById("zyl"), g=cv.getContext("2d"); g.clearRect(0,0,cv.width,cv.height);
+  const L=computeL(); const cw=cv.width/9;
+  for(let j=0;j<9;j++){const sym=ORDER2[(j+ROT)%9]; const k=ORDER.indexOf(sym); const x=j*cw+8,w=cw-16;
+    g.strokeStyle=L[k].L?'rgba(124,224,168,0.5)':'rgba(255,90,122,0.4)'; g.strokeRect(x,10,w,cv.height-50);
+    for(let c=0;c<9;c++){const cx=x+w/6+(c%3)*(w/3), cy=36+Math.floor(c/3)*44; const st=CYL[k][c];
+      g.beginPath(); g.arc(cx,cy,st?7:4,0,7); g.fillStyle=st===2?'#ffcc44':st===1?(L[k].L?'#7ce0a8':'#5a3644'):'#1a2433'; g.fill();}
+    g.fillStyle="#c8d8e8"; g.font="bold 11px Consolas"; g.textAlign="center"; g.fillText(sym,x+w/2,cv.height-24);
+  }
+  document.getElementById("zTxt").textContent=`ALLES ${CYL.flat().filter(v=>v>0).length}/81 · ROT ${ROT}/9 · ANKER ${ANKER||"–"} · LÄUFER ${ORDER2[(ROT+Math.floor(P/9))%9]}.${P%9}`;
+}
+document.getElementById("zRun").onclick=()=>{RUN=!RUN;};
+document.getElementById("zMove").onclick=()=>{ROT=(ROT+1)%9;};
+document.getElementById("zUnmove").onclick=()=>{ROT=(ROT+8)%9;};
+document.getElementById("zUse").onclick=()=>{ANKER=ANKER?null:ORDER2[(ROT+Math.floor(P/9))%9];};
+setInterval(()=>{cpu=Math.max(0,Math.min(100,jit/40*100)); gpu=isFinite(base)?Math.max(0,Math.min(100,(ft/base-1)*100)):0; const pm=performance.memory; ram=pm?pm.usedJSHeapSize/pm.jsHeapSizeLimit*100:null; cores=navigator.hardwareConcurrency||1; draw99(); render99(); zStep(); zDraw();
+ const cv=document.getElementById("gears"), gg=cv.getContext("2d"); gg.clearRect(0,0,cv.width,cv.height); const Lv=computeL(); ORDER.forEach((s,i)=>{const x=60+i*(cv.width-120)/8,y=cv.height/2; gg.strokeStyle=Lv[s].L?'#7ce0a8':'#ff5a7a'; gg.beginPath(); gg.arc(x,y,16,0,7); gg.stroke(); gg.fillStyle=Lv[s].L?'#7ce0a8':'#5a7288'; gg.font="bold 11px Consolas"; gg.textAlign="center"; gg.fillText(s,x,y+3);}); document.getElementById("gearTxt").textContent=Lv?`Zahnräder: ${ORDER.filter(s=>!Lv[s].L).join(",")||"alle greifen"} — Breite 1-2-3-2-1 — gleiche 9 Symbole`:"";
+ const gf=document.getElementById("graph"), gfg=gf.getContext("2d"); gfg.clearRect(0,0,gf.width,gf.height); const L2=computeL(); const cx=gf.width/2, cy=gf.height/2; gfg.strokeStyle="rgba(90,114,136,0.2)"; ORDER.forEach((a,i)=>{const p=PARENT[a]; if(!p) return; const ai=ORDER.indexOf(a), pi=ORDER.indexOf(p); const ax=cx+Math.cos(ai/ORDER.length*6.28)*100, ay=cy+Math.sin(ai/ORDER.length*6.28)*100; const px=cx+Math.cos(pi/ORDER.length*6.28)*100, py=cy+Math.sin(pi/ORDER.length*6.28)*100; gfg.beginPath(); gfg.moveTo(px,py); gfg.lineTo(ax,ay); gfg.stroke();}); ORDER.forEach((a,i)=>{const ang=i/ORDER.length*6.28, x=cx+Math.cos(ang)*100, y=cy+Math.sin(ang)*100; const col=L2[a].L?"#7ce0a8":"#ff5a7a"; gfg.fillStyle=col; gfg.beginPath(); gfg.arc(x,y,12,0,7); gfg.fill(); gfg.fillStyle="#02060a"; gfg.font="9px Consolas"; gfg.textAlign="center"; gfg.fillText(a,x,y+3);}); gfg.fillStyle="#ffcc44"; gfg.beginPath(); gfg.arc(cx,cy,14,0,7); gfg.fill(); gfg.fillStyle="#02060a"; gfg.fillText("99",cx-6,cy+3);
+ const f1=ORDER.map(a=>L2[a].L), f2=(function(R){const L={}; ORDER.forEach((sym,i)=>{const p=PARENT[sym]; L[sym]=p==null?R[i]:(L[p]&&R[i]);}); return ORDER.map(x=>L[x]);})(f1); document.getElementById("fn").innerHTML=`f(x)=Kette über Messwerten = ${f1.map(v=>v?"⊤":"⊥").join("")} · f(f(x))=${f2.map(v=>v?"⊤":"⊥").join("")} → ${f1.every((v,i)=>v===f2[i])?"<span class=ok>FIXPUNKT f(f)=f</span>":"<span class=err>kein Fixpunkt</span>"} · nur real was real ist zur Deutung — graph folgerichtig weil algorithmus sogar im namen — 99 invertiert und real beides gegeben ich bin Sonne und Unmacht`;
+},250);
+</script>
+</body>
+</html>
